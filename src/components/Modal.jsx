@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
-function Modal({ children, open, className = "" }) {
+function Modal({ children, open, className = "", onClose }) {
     const dialogRef = useRef(null);
 
     useEffect(() => {
@@ -10,16 +10,8 @@ function Modal({ children, open, className = "" }) {
             modal.showModal();
         }
 
-        const handleEsc = (event) => {
-            if (event.key === 'Escape') {
-                console.log('Close')
-            }
-        };
-
-        window.addEventListener('keydown', handleEsc);
 
         return () => {
-            window.removeEventListener('keydown', handleEsc);
             modal.close();
         }
 
@@ -27,7 +19,7 @@ function Modal({ children, open, className = "" }) {
 
 
     return createPortal(
-        <dialog className={`modal ${className}`} ref={dialogRef}>
+        <dialog className={`modal ${className}`} ref={dialogRef} onClose={onClose}>
             {children}
         </dialog>,
         document.getElementById("modal")

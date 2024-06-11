@@ -23,7 +23,7 @@ function Cart() {
     }
 
     return (
-        <Modal className="cart" open={userProgressContext.progress === "cart"}>
+        <Modal className="cart" open={userProgressContext.progress === "cart"} onClose={userProgressContext.progress === "cart" ? handleCloseCart : null}>
             <div className="container">
                 <h2>Your Cart</h2>
                 <ul>
