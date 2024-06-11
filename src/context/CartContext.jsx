@@ -10,7 +10,7 @@ const CartContext = createContext({
 function cartReducer(state, action) {
     switch (action.type) {
         case "ADD_ITEM": {
-
+            console.log("adding", action.payload)
             const updatedItems = [...state.items];
             const existingItemIndex = state.items.findIndex(item => item.id === action.payload.id);
             if (existingItemIndex > -1) {
@@ -27,11 +27,13 @@ function cartReducer(state, action) {
             return { ...state, items: updatedItems }
         }
         case "REMOVE_ITEM": {
-
+            console.log("removing", action.payload);
             const updatedItems = [...state.items];
-            const existingItemIndex = state.items.findIndex(item => item.itemId === action.payload.id);
+            console.log("state items: ", state.items)
+            const existingItemIndex = state.items.findIndex(item => item.id === action.payload);
+            console.log(existingItemIndex);
             const existingItem = state.items[existingItemIndex];
-
+            console.log("existingItem: ", existingItem);
             if (existingItem.quantity === 1) {
                 updatedItems.splice(existingItemIndex, 1);
             } else {

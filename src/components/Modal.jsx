@@ -10,9 +10,19 @@ function Modal({ children, open, className = "" }) {
             modal.showModal();
         }
 
+        const handleEsc = (event) => {
+            if (event.key === 'Escape') {
+                console.log('Close')
+            }
+        };
+
+        window.addEventListener('keydown', handleEsc);
+
         return () => {
+            window.removeEventListener('keydown', handleEsc);
             modal.close();
         }
+
     }, [open]);
 
 

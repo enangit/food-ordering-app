@@ -38,7 +38,7 @@ function Header() {
                 </a>
 
                 <button
-                    className="cart"
+                    className="cart-button"
                     data-item-quantity={totalNumber}
                     onClick={handleShowCart}
                 >

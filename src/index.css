@@ -66,14 +66,14 @@ button {
 }
 
 
-button.cart svg {
+button.cart-button svg {
     color: #d9e2f1;
 
     transition-property: color;
     transition: 300ms ease;
 }
 
-button.cart:hover svg {
+button.cart-button:hover svg {
     color: #ffc404;
 }
 
@@ -140,15 +140,22 @@ button.cart:hover svg {
     margin-bottom: 1.5rem;
 }
 
-.cart {
+.cart-button {
     position: relative;
 }
-.cart::after {
+
+.cart-button::after {
     position: absolute;
     content: attr(data-item-quantity);
     color: #ffc404;
     font-size: 16px;
     top: -10px;
+}
+
+.cart .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .cart h2 {
@@ -278,7 +285,46 @@ button.cart:hover svg {
     color: #ffab04;
 }
 
+
+.checkout h2 {
+    margin-block-end: 1rem;
+}
+
+.checkout .cart-total {
+    justify-content: flex-start;
+    margin: 2rem 0;
+    font-size: 1.15rem;
+}
+
+.checkout form {
+    margin-block-start: 1rem;
+}
+
+.checkout form .form-group {
+    display: flex;
+    flex-direction: column;
+    row-gap: .4rem;
+    margin-block-end: .8rem;
+}
+
+.checkout form .form-group label {
+    font-weight: 600;
+}
+
+.checkout form .form-group input {
+    width: 50%;
+    min-height: 2rem;
+    padding: .5rem;
+    border: none;
+    border-radius: .5rem;
+}
+
+.checkout form .form-group input:focus-visible {
+    outline: 1.5px solid #ffab04;
+}
+
 .modal {
+    margin: auto;
     background-color: #e4ddd4;
     border-radius: 6px;
     border: none;
