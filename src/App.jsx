@@ -7,25 +7,7 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 
 function App() {
-
-
-    // useEffect(() => {
-    //     setIsLoading(true)
-    //     async function getMeals() {
-    //         const response = await fetch("http://localhost:3000/meals");
-    //         if (!response.ok) {
-    //             setError("Error occured!");
-    //             setIsLoading(false)
-    //         }
-    //
-    //         const data = await response.json();
-    //         setMeals(data);
-    //     }
-    //
-    //     getMeals();
-    //     setIsLoading(false)
-    // }, []);
-
+    // TODO: I added this line to see if node_modulese folder wil still be uploaded to the github repository.
     return (
         <UserProgressContextProvider>
             <CartContextProvider>
