@@ -152,12 +152,6 @@ button.cart-button:hover svg {
     top: -10px;
 }
 
-.cart .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .cart h2 {
     margin: 1rem 0;
 }
@@ -251,9 +245,9 @@ button.cart-button:hover svg {
 
 .control-row {
     display: flex;
-    justify-content: flex-start;
     gap: 1rem;
 }
+
 
 .button {
     font: inherit;
@@ -305,6 +299,7 @@ button.cart-button:hover svg {
     flex-direction: column;
     row-gap: .4rem;
     margin-block-end: .8rem;
+    width: 50%;
 }
 
 .checkout form .form-group label {
@@ -312,7 +307,6 @@ button.cart-button:hover svg {
 }
 
 .checkout form .form-group input {
-    width: 50%;
     min-height: 2rem;
     padding: .5rem;
     border: none;
@@ -321,6 +315,14 @@ button.cart-button:hover svg {
 
 .checkout form .form-group input:focus-visible {
     outline: 1.5px solid #ffab04;
+}
+
+.control-row {
+    width: 50%;
+}
+
+.control-row .form-group input{
+    width: 100%;
 }
 
 .modal {

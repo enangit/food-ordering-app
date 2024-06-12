@@ -7,24 +7,24 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 
 function App() {
-    const [meals, setMeals] = useState([]);
-    const [error, setError] = useState(null);
 
 
-    useEffect(() => {
-
-        async function getMeals() {
-            const response = await fetch("http://localhost:3000/meals");
-            if (!response.ok) {
-                setError("Error occured!");
-            }
-
-            const data = await response.json();
-            setMeals(data);
-        }
-
-        getMeals();
-    }, []);
+    // useEffect(() => {
+    //     setIsLoading(true)
+    //     async function getMeals() {
+    //         const response = await fetch("http://localhost:3000/meals");
+    //         if (!response.ok) {
+    //             setError("Error occured!");
+    //             setIsLoading(false)
+    //         }
+    //
+    //         const data = await response.json();
+    //         setMeals(data);
+    //     }
+    //
+    //     getMeals();
+    //     setIsLoading(false)
+    // }, []);
 
     return (
         <UserProgressContextProvider>
@@ -35,15 +35,7 @@ function App() {
                         <h1>Food Ordering App</h1>
                         <p>Order food that you like!</p>
                     </div>
-                    {
-                        error &&
-                        <p>{error}</p>
-                    }
-                    {
-                        meals &&
-                        <Meals
-                            meals={meals}
-                        />}
+                    <Meals />
                 </main >
                 <Cart />
                 <Checkout />

@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import currencyFormatter from "../utils/formatPrice";
 import CartContext from "../context/CartContext";
+import { BASE_URL } from "../utils/config";
 
 function MealItem({ meal  }) {
     const {addItem} = useContext(CartContext);
+
     function addToCart() {
         addItem(meal);
     }
@@ -11,7 +13,7 @@ function MealItem({ meal  }) {
     return (
         <li key={meal.id} className="meal-item">
             <article>
-                <img src={`http://localhost:3000/${meal.image}`} alt={`${meal.name} meal image`} />
+                <img src={`${BASE_URL}/${meal.image}`} alt={`${meal.name} meal image`} />
 
                 <h3>{meal.name}</h3>
                 <div>

@@ -26,6 +26,7 @@ function cartReducer(state, action) {
 
             return { ...state, items: updatedItems }
         }
+
         case "REMOVE_ITEM": {
             console.log("removing", action.payload);
             const updatedItems = [...state.items];
@@ -51,7 +52,6 @@ function cartReducer(state, action) {
 export const CartContextProvider = ({ children }) => {
     const [cartState, cartDispatcherAction] = useReducer(cartReducer, { items: [] });
 
-
     function addItem(item) {
         cartDispatcherAction({
             type: "ADD_ITEM",
@@ -71,6 +71,7 @@ export const CartContextProvider = ({ children }) => {
         addItem: addItem,
         removeItem: removeItem,
     }
+
     return <CartContext.Provider value={cartContext}>
         {children}
     </CartContext.Provider>
