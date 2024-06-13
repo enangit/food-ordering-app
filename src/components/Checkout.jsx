@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext  } from "react";
+
 import Modal from "./Modal";
 import UserProgressContext from "../context/UserProgressContext";
 import CartContext from "../context/CartContext";
@@ -16,7 +17,7 @@ const config = {
 function Checkout() {
     const userProgressContext = useContext(UserProgressContext);
 
-    const { items } = useContext(CartContext);
+    const { items, clearItems } = useContext(CartContext);
 
     const { data, isLoading, error, sendRequest } = useHttp("http://localhost:3000/orders", config);
 
@@ -28,6 +29,11 @@ function Checkout() {
         userProgressContext.hideCheckout();
     }
 
+    function handleFinished() {
+        userProgressContext.hideCheckout();
+        clearItems();
+
+    }
 
     async function handleFormSubmit(event) {
         event.preventDefault();
@@ -72,7 +78,7 @@ function Checkout() {
                 <h2>Order Submitted</h2>
                 <p>We will process your order now. An email will be sent to you. Thank you!</p>
                 <span className="modal-actions">
-                    <button onClick={handleClose}>Okay</button>
+                    <button onClick={handleFinished}>Okay</button>
                 </span>
             </Modal>
         );

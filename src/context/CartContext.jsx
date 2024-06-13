@@ -10,9 +10,10 @@ const CartContext = createContext({
 function cartReducer(state, action) {
     switch (action.type) {
         case "ADD_ITEM": {
-            console.log("adding", action.payload)
             const updatedItems = [...state.items];
+
             const existingItemIndex = state.items.findIndex(item => item.id === action.payload.id);
+
             if (existingItemIndex > -1) {
                 const updatedItem = {
                     ...state.items[existingItemIndex],
@@ -28,13 +29,12 @@ function cartReducer(state, action) {
         }
 
         case "REMOVE_ITEM": {
-            console.log("removing", action.payload);
             const updatedItems = [...state.items];
-            console.log("state items: ", state.items)
+
             const existingItemIndex = state.items.findIndex(item => item.id === action.payload);
-            console.log(existingItemIndex);
+
             const existingItem = state.items[existingItemIndex];
-            console.log("existingItem: ", existingItem);
+
             if (existingItem.quantity === 1) {
                 updatedItems.splice(existingItemIndex, 1);
             } else {
@@ -42,7 +42,15 @@ function cartReducer(state, action) {
                 updatedItems[existingItemIndex] = updatedItem
             }
 
-            return { ...state, items: updatedItems }
+            return { ...state, items: updatedItems };
+        }
+
+        case "CLEAR_ITEMS": {
+            const updatedItems = [...state.items];
+
+            updatedItems.length = 0;
+
+            return { ...state, items: updatedItems };
         }
         default:
             return state;
@@ -66,10 +74,17 @@ export const CartContextProvider = ({ children }) => {
         });
     }
 
+    function clearItems() {
+        cartDispatcherAction({
+            type: "CLEAR_ITEMS",
+        });
+    }
+
     const cartContext = {
         items: cartState.items,
         addItem: addItem,
         removeItem: removeItem,
+        clearItems: clearItems,
     }
 
     return <CartContext.Provider value={cartContext}>
