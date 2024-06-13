@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #00F846;
+}
+
 body {
     margin: 0;
     font-family: 'Raleway', sans-serif;
@@ -36,7 +40,7 @@ body {
     height: 4rem;
     object-fit: contain;
     border-radius: 50%;
-    border: 2px solid #ffc404;
+    border: 2px solid var(--primary-color);
 }
 
 #main-header button {
@@ -49,7 +53,7 @@ h1 {
     font-weight: 700;
     font-size: 2rem;
     margin: 0;
-    color: #ffc404;
+    color: var(--primary-color);
     letter-spacing: 0.2rem;
     text-transform: uppercase;
 }
@@ -74,7 +78,7 @@ button.cart-button svg {
 }
 
 button.cart-button:hover svg {
-    color: #ffc404;
+    color: var(--primary-color);
 }
 
 .heading {
@@ -128,7 +132,7 @@ button.cart-button:hover svg {
 .meal-item-price {
     display: inline-block;
     background-color: #312c1d;
-    color: #ffc404;
+    color: var(--primary-color);
     font-size: 0.9rem;
     font-weight: bold;
     padding: 0.5rem 2rem;
@@ -147,7 +151,7 @@ button.cart-button:hover svg {
 .cart-button::after {
     position: absolute;
     content: attr(data-item-quantity);
-    color: #ffc404;
+    color: var(--primary-color);
     font-size: 16px;
     top: -10px;
 }
@@ -211,7 +215,7 @@ button.cart-button:hover svg {
     border-radius: 50%;
     border: none;
     background-color: #312c1d;
-    color: #ffc404;
+    color: var(--primary-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,7 +224,7 @@ button.cart-button:hover svg {
 .cart-item-actions button:hover,
 .cart-item-actions button:active {
     background-color: #1d1a16;
-    color: #ffab04;
+    color: var(--primary-color);
 }
 
 .control {
@@ -252,8 +256,8 @@ button.cart-button:hover svg {
 .button {
     font: inherit;
     cursor: pointer;
-    background-color: #ffc404;
-    border: 1px solid #ffc404;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     color: #1f1a09;
     padding: 0.5rem 1.5rem;
     border-radius: 4px;
@@ -261,8 +265,8 @@ button.cart-button:hover svg {
 
 .button:hover,
 .button:active {
-    background-color: #ffab04;
-    border-color: #ffab04;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
     color: #1f1a09;
 }
 
@@ -271,12 +275,12 @@ button.cart-button:hover svg {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    color: #ffc404;
+    color: var(--primary-color);
 }
 
 .text-button:hover,
 .text-button:active {
-    color: #ffab04;
+    color: var(--primary-color);
 }
 
 
@@ -314,14 +318,14 @@ button.cart-button:hover svg {
 }
 
 .checkout form .form-group input:focus-visible {
-    outline: 1.5px solid #ffab04;
+    outline: 1.5px solid var(--primary-color);
 }
 
 .control-row {
     width: 50%;
 }
 
-.control-row .form-group input{
+.control-row .form-group input {
     width: 100%;
 }
 

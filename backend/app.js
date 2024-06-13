@@ -24,7 +24,6 @@ app.get('/meals', async (req, res) => {
 
 app.post('/orders', async (req, res) => {
     const orderData = await req.body.order;
-    console.log(orderData);
 
     if (orderData === null || orderData.items === null || orderData.items.length === 0) {
         return res
@@ -61,7 +60,6 @@ app.post('/orders', async (req, res) => {
     await fs.writeFile('./data/orders.json', JSON.stringify(allOrders));
     res.status(201).json({ message: 'Order created!' });
 
-    console.log(orders)
 });
 
 app.use((req, res) => {
